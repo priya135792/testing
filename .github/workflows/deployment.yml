@@ -1,0 +1,34 @@
+name: test,lint,deploy
+on: push
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: download the project
+        uses: actions/checkout@v4
+      - name: install nodejs
+        uses: actions/setup-node@v4
+        with: 
+          node-version: 18
+      - name: install all dependencies
+        run: npm install
+      - name: test
+        run: npm test
+  yamllint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout the repository
+        uses: actions/checkout@v4
+      - name: set up python
+        uses: actions/setup-python@v4
+      - name: Install yamllint
+        uses: pip install yamllint
+      - name: run yamllint
+        uses: yamllint . --strict
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy
+        run: echo "deploying ......."
+        
+        
