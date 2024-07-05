@@ -3,7 +3,7 @@ name: test,lint,deploy
 on:
   push:
     branches:
-      - master
+      - master: true
 jobs:
   test:
     runs-on: ubuntu-latest
