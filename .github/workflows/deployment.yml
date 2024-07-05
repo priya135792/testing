@@ -1,9 +1,7 @@
 ---
 name: test,lint,deploy
 on:
-  push:
-    branches:
-      - master: true
+  push
 jobs:
   test:
     runs-on: ubuntu-latest
