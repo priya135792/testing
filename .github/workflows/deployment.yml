@@ -14,6 +14,8 @@ jobs:
         run: npm install
       - name: test
         run: npm test
+      - name: lint
+        run: npm lint
   yamllint:
     runs-on: ubuntu-latest
     steps:
@@ -22,9 +24,9 @@ jobs:
       - name: set up python
         uses: actions/setup-python@v4
       - name: Install yamllint
-        uses: pip install yamllint
+        run: pip install yamllint
       - name: run yamllint
-        uses: yamllint . --strict
+        run: yamllint . --strict
   deploy:
     runs-on: ubuntu-latest
     steps:
