@@ -2,3 +2,4 @@ extends: default
 rules:
   truthy: disable
   line-length: disable
+  document-start: disable
